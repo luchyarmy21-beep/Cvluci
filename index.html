@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Digital - Lucía Del Carmen Tello</title>
+    
+    <!-- Iconos para las secciones -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+
+    <!-- Estilos Visuales (CSS3) -->
+    <style>
+        /* Variables de color para un estilo infantil pero profesional (Tonos Pasteles) */
+        :root {
+            --primary-color: #7bc0cd; /* Celeste suave */
+            --secondary-color: #ffb7b2; /* Rosado/Coral pastel */
+            --text-dark: #4a4a4a;
+            --bg-light: #f7f9fa;
+            --white: #ffffff;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #a2e1db);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        .header-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .header-container h2 {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .tagline {
+            margin-top: 15px;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        /* Contenedor Principal (Grid Dinámico) */
+        .cv-container {
+            max-width: 1050px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
+        }
+
+        /* Tarjetas (Cards) */
+        .card {
+            background-color: var(--white);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Sidebar (Columna de datos de contacto) */
+        .sidebar .card {
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .sidebar .card h3 {
+            color: var(--secondary-color);
+        }
+
+        .contacto ul {
+            list-style: none;
+        }
+
+        .contacto ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contacto ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .contacto ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            background-color: #fff0ef;
+            margin-bottom: 8px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skills-list.tech li {
+            background-color: #e8f4f6;
+        }
+
+        /* Contenido de la línea de tiempo */
+        .timeline-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-item h4 {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Botón e Interactividad */
+        .action-area {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 183, 178, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #ff9a93;
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .alert {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #e8f4f6;
+            border: 1px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            background-color: #fff;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Animación */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Adaptación para Celulares (Responsive) */
+        @media (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="profile-info">
+                <h1>Lucía Del Carmen Tello</h1>
+                <h2>Aspirante a Maestra Jardinera / Docencia Infantil</h2>
+                <p class="tagline"><i class="fas fa-heart"></i> Vocación, paciencia y responsabilidad en la primera infancia.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="cv-container">
+        
+        <!-- Columna Izquierda: Perfil y Habilidades -->
+        <aside class="sidebar">
+            <section class="card contacto">
+                <h3><i class="fas fa-address-book"></i> Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:luchy.army21@gmail.com">luchy.army21@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i> <a href="https://wa.me" target="_blank">+54 351 7626107</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Córdoba, Argentina</li>
+                </ul>
+            </section>
+
+            <section class="card habilidades">
+                <h3><i class="fas fa-star"></i> Cualidades Personales</h3>
+                <ul class="skills-list">
+                    <li>Responsabilidad profesional</li>
+                    <li>Puntualidad rigurosa</li>
+                    <li>Paciencia ante dificultades</li>
+                    <li>Resolución de problemas técnicos</li>
+                    <li>Adaptabilidad en el aula</li>
+                </ul>
+            </section>
+
+            <section class="card lenguajes">
+                <h3><i class="fas fa-tools"></i> Otras Competencias</h3>
+                <ul class="skills-list tech">
+                    <li>Diseño en Canva</li>
+                    <li>Pensamiento lógico-técnico</li>
+                    <li>Manejo de herramientas digitales</li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Columna Derecha: Contenido Principal -->
+        <section class="main-content">
+            
+            <section class="card">
+                <h3><i class="fas fa-user"></i> Perfil Profesional</h3>
+                <p>Egresada de escuela técnica con una sólida base en resolución de problemas complejos, actualmente orientando mi vocación hacia la <strong>docencia infantil y la educación inicial</strong>. Me considero una persona altamente responsable, puntual y con la paciencia necesaria para afrontar y resolver los desafíos diarios en el desarrollo integral de los niños. Mi formación técnica me brinda un enfoque metódico y creativo, ideal para implementar dinámicas pedagógicas innovadoras.</p>
+            </section>
+
+            <section class="card">
+                <h3><i class="fas fa-graduation-cap"></i> Formación Académica</h3>
+                <div class="timeline-item">
+                    <h4>Título Secundario Técnico en Electromecánica</h4>
+                    <p class="date">Finalizado</p>
+                    <p>Institución de Educación Técnica. Desarrollo de habilidades lógico-matemáticas, trabajo en equipo bajo normas de seguridad y mantenimiento preventivo/correctivo.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Trayectoria / Cursos en Educación Inicial</h4>
+                    <p class="date">En progreso / Interés actual</p>
+                    <p>Enfoque en pedagogías de la primera infancia, recreación infantil y cuidado de la niñez.</p>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3><i class="fas fa-briefcase"></i> Proyectos y Experiencia</h3>
+                <div class="timeline-item">
+                    <h4>Diseño y Organización de Proyectos Grupales</h4>
+                    <p>Coordinación de actividades y gestión de carpetas colaborativas digitales en entornos educativos y comunitarios, asegurando dinamismo, orden y puntualidad.</p>
+                </div>
+            </section>
+
+Usa el código con precaución.
+¡Contactame ahora!
+
+Podés enviarme un correo directo a luchy.army21@gmail.com o escribirme por WhatsApp al +54 351 7626107 para coordinar una entrevista. ¡Muchas gracias por tu interés!
+
+© 2026 - Lucía Del Carmen Tello. Desarrollado en HTML, CSS y JS.
+document.addEventListener('DOMContentLoaded', () => {
+const botonContacto = document.getElementById('btn-contacto');
+const mensajeContacto = document.getElementById('mensaje-contacto');
+botonContacto.addEventListener('click', () => {
+mensajeContacto.classList.toggle('hidden');
+if (mensajeContacto.classList.contains('hidden')) {
+botonContacto.textContent = '¡Contactame ahora!';
+botonContacto.style.backgroundColor = '#ffb7b2';
+} else {
+botonContacto.textContent = 'Ocultar información';
+botonContacto.style.backgroundColor = '#7bc0cd';
+}
+});
+})
